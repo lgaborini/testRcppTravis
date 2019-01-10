@@ -6,7 +6,7 @@
 using namespace Rcpp;
 
 // rcpp_hello_world
-Rcpp::NumericVector rcpp_hello_world();
+LogicalVector rcpp_hello_world();
 RcppExport SEXP _testRcppTravis_rcpp_hello_world() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -15,9 +15,42 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_hello_world_hidden
+LogicalVector rcpp_hello_world_hidden();
+RcppExport SEXP _testRcppTravis_rcpp_hello_world_hidden() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world_hidden());
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_hello_world_internal
+LogicalVector rcpp_hello_world_internal();
+RcppExport SEXP _testRcppTravis_rcpp_hello_world_internal() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world_internal());
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_hello_world_source_call
+LogicalVector rcpp_hello_world_source_call();
+RcppExport SEXP _testRcppTravis_rcpp_hello_world_source_call() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world_source_call());
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_testRcppTravis_rcpp_hello_world", (DL_FUNC) &_testRcppTravis_rcpp_hello_world, 0},
+    {"_testRcppTravis_rcpp_hello_world_hidden", (DL_FUNC) &_testRcppTravis_rcpp_hello_world_hidden, 0},
+    {"_testRcppTravis_rcpp_hello_world_internal", (DL_FUNC) &_testRcppTravis_rcpp_hello_world_internal, 0},
+    {"_testRcppTravis_rcpp_hello_world_source_call", (DL_FUNC) &_testRcppTravis_rcpp_hello_world_source_call, 0},
     {NULL, NULL, 0}
 };
 
